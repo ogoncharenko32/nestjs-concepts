@@ -32,3 +32,12 @@ model Destination {
   user       User     @relation(fields: [userId], references: [id])
   userId     Int
 }
+
+model File {
+  id        String   @id @default(uuid())
+  filename  String
+  publicId  String   @unique
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
